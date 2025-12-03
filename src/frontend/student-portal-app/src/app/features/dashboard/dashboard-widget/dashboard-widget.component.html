@@ -1,0 +1,41 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- Grades block -->
+    <ng-container *ngIf="title === 'Grades'">
+      <p><strong>GPA:</strong> {{ content?.gpa }}</p>
+      <p><strong>Latest Subjects:</strong></p>
+      <ul>
+        <li *ngFor="let subject of content?.latestSubjects">{{ subject }}</li>
+      </ul>
+    </ng-container>
+
+    <!-- Schedule block -->
+    <ng-container *ngIf="title === 'Schedule'">
+      <p><strong>Today's Classes:</strong></p>
+      <ul>
+        <li *ngFor="let c of content?.classesToday">{{ c }}</li>
+      </ul>
+    </ng-container>
+
+    <!-- Enrollment block -->
+    <ng-container *ngIf="title === 'Enrollment'">
+      <p>Status: <strong>{{ content }}</strong></p>
+    </ng-container>
+
+    <!-- Attendance block -->
+    <ng-container *ngIf="title === 'Attendance'">
+      <p><strong>Present:</strong> {{ content?.present }}</p>
+      <p><strong>Absent:</strong> {{ content?.absent }}</p>
+      <p><strong>Late:</strong> {{ content?.late }}</p>
+    </ng-container>
+
+    <!-- Default -->
+    <ng-container *ngIf="!content">
+      <p>No data available</p>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

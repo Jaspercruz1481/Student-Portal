@@ -1,0 +1,23 @@
+<main class="dashboard-main" *ngIf="dashboardData">
+
+  <app-dashboard-widget
+    title="Grades"
+    [content]="dashboardData.grades">
+  </app-dashboard-widget>
+
+  <app-dashboard-widget
+    title="Schedule"
+    [content]="dashboardData.todaySchedule">
+  </app-dashboard-widget>
+
+  <app-dashboard-widget
+    title="Enrollment"
+    [content]="dashboardData.enrollmentStatus">
+  </app-dashboard-widget>
+
+  <app-dashboard-widget
+    title="Attendance"
+    [content]="dashboardData.attendance">
+  </app-dashboard-widget>
+
+</main>

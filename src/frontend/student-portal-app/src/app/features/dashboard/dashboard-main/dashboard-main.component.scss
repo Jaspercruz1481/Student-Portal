@@ -1,0 +1,19 @@
+.dashboard-main {
+  flex: 1;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 500px);
+  gap: 1rem;
+  background-color: #f5f5fa;
+  min-height: 100vh;
+
+  justify-content: center;
+  align-content: start;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+mat-card-title {
+  text-align: center;
+}
