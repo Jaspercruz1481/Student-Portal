@@ -43,9 +43,9 @@ public class EnrollmentServiceImpl implements EnrollmentService {
     @Override
     public EnrollmentDto createEnrollment(EnrollmentDto dto) {
         Enrollment enrollment = Enrollment.builder()
-                .student(dto.getStudent())
+//                .student(dto.getStudent())
                 .enrollmentDate(dto.getEnrollmentDate())
-                .course(dto.getCourse())
+//                .course(dto.getCourse())
                 .term(dto.getTerm())
                 .status(dto.getStatus())
                 .remarks(dto.getRemarks())
@@ -61,10 +61,10 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
         enrollment.setStatus(dto.getStatus());
         enrollment.setRemarks(dto.getRemarks());
-        enrollment.setStudent(dto.getStudent());
+//        enrollment.setStudent(dto.getStudent());
         enrollment.setEnrollmentDate(dto.getEnrollmentDate());
         enrollment.setTerm(dto.getTerm());
-        enrollment.setCourse(dto.getCourse());
+//        enrollment.setCourse(dto.getCourse());
 
         Enrollment updated = enrollmentRepo.save(enrollment);
 

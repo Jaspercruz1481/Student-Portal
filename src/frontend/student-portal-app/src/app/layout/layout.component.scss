@@ -1,0 +1,27 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f6fa;
+}
+
+nz-layout {
+  height: 100%;
+}
+
+.dashboard-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 1rem;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // push items apart
+  padding: 0 0 0 0;
+  height: 64px;
+  background-color: #01326b;
+}

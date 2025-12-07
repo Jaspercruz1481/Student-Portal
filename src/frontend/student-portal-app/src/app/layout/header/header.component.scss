@@ -1,0 +1,54 @@
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // push items apart
+  padding: 0 0 0 0;
+  height: 64px;
+
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+
+  .logo img {
+    display: block;
+    border-radius: 4px; // optional
+  }
+
+  .student-name {
+    margin-left: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+  }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+
+  .logout-btn {
+    white-space: nowrap; // prevents wrapping
+  }
+}
+
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 8px;
+  }
+
+  .header-left {
+    margin-bottom: 8px;
+  }
+
+  .header-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

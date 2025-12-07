@@ -1,5 +1,6 @@
 package com.studentportal.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,5 +51,16 @@ public class Schedule {
 
     @Column(name = "CLASS_SECTION", nullable = false)
     private String classSection;
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "id=" + id +
+                ", dayOfWeek='" + dayOfWeek + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", classSection='" + classSection + '\'' +
+                '}';
+    }
 
 }

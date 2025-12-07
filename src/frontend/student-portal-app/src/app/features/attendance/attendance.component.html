@@ -1,0 +1,25 @@
+<div class="att-container">
+  <h2 class="title">My Attendances</h2>
+
+  <nz-table #basicTable [nzData]="attendance" nzBordered>
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Time-In</th>
+      <th>Time Out</th>
+      <th>Remarks</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let att of attendance">
+      <td>{{ att.date }}</td>
+      <td>{{ att.status }}</td>
+      <td>{{ att.timeIn || '-' }}</td>
+      <td>{{ att.timeOut || '-' }}</td>
+      <td>{{ att.remarks || '-' }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

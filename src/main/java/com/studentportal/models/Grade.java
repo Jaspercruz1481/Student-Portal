@@ -18,12 +18,18 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "STUDENT_ID", nullable = false)
-    private Student student;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "STUDENT_ID", nullable = false)
+//    private Student student;
 
-    @Column(name = "GRADE_AMOUNT", nullable = false)
-    private int gradeAmount;
+    @Column(name = "MIDTERMS", nullable = false)
+    private Double midterms;
+
+    @Column(name = "FINALS", nullable = false)
+    private Double finals;
+
+    @Column(name = "AVERAGE", nullable = false)
+    private Double average;
 
     @JoinColumn(name = "SUBJECT_ID", nullable = false)
     @OneToOne(fetch = FetchType.LAZY)

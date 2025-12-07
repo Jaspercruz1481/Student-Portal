@@ -55,7 +55,7 @@ public class AttendanceServiceImpl implements AttendanceService {
     @Override
     public AttendanceDto createAttendance(AttendanceDto dto) {
         Attendance attendance = Attendance.builder()
-                .student(dto.getStudent())
+//                .student(dto.getStudent())
                 .date(dto.getDate())
                 .status(dto.getStatus())
                 .timeIn(dto.getTimeIn())
@@ -74,7 +74,7 @@ public class AttendanceServiceImpl implements AttendanceService {
         attendance.setStatus(dto.getStatus());
         attendance.setDate(dto.getDate());
         attendance.setRemarks(dto.getRemarks());
-        attendance.setStudent(dto.getStudent());
+//        attendance.setStudent(dto.getStudent());
         attendance.setTimeIn(dto.getTimeIn());
         attendance.setTimeOut(dto.getTimeOut());
 

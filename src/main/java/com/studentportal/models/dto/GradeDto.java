@@ -1,6 +1,5 @@
 package com.studentportal.models.dto;
 
-import com.studentportal.models.Student;
 import com.studentportal.models.Subject;
 import lombok.Data;
 
@@ -8,7 +7,8 @@ import lombok.Data;
 public class GradeDto {
 
     private Long id;
-    private Student student;
-    private int gradeAmount;
-    private Subject subject;
+    private Double midterms;
+    private Double finals;
+    private Double average;
+    private SubjectDto subjectName;
 }

@@ -1,7 +1,5 @@
 package com.studentportal.models.dto;
 
-import com.studentportal.models.Course;
-import com.studentportal.models.Student;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -10,8 +8,8 @@ import java.time.LocalDate;
 public class EnrollmentDto {
 
     private Long id;
-    private Student student;
-    private Course course;
+    private Long studentId;
+    private Long courseId;
     private String term;
     private LocalDate enrollmentDate;
     private String status;

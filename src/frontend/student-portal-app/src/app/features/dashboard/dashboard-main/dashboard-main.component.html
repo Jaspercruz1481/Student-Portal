@@ -1,23 +1,39 @@
-<main class="dashboard-main" *ngIf="dashboardData">
+<div class="dashboard-container">
+  <nz-row [nzGutter]="16" justify="center">
+    <!-- Grades -->
+    <nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" *ngIf="dashboard?.grades as gradesSummary">
+      <app-dashboard-widget title="Grades">
+        <p class="font-medium">GPA: {{ gradesSummary.gpa }}</p>
+        <p class="font-medium">Latest Subjects:</p>
+        <ul class="list-disc pl-5">
+          <li *ngFor="let subject of gradesSummary.latestSubjects">{{ subject }}</li>
+        </ul>
+      </app-dashboard-widget>
+    </nz-col>
 
-  <app-dashboard-widget
-    title="Grades"
-    [content]="dashboardData.grades">
-  </app-dashboard-widget>
+    <!-- Attendance -->
+    <nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" *ngIf="dashboard?.attendance as attendanceSummary">
+      <app-dashboard-widget title="Attendance">
+        <p>Present: {{ attendanceSummary.present }}</p>
+        <p>Absent: {{ attendanceSummary.absent }}</p>
+        <p>Late: {{ attendanceSummary.late }}</p>
+      </app-dashboard-widget>
+    </nz-col>
 
-  <app-dashboard-widget
-    title="Schedule"
-    [content]="dashboardData.todaySchedule">
-  </app-dashboard-widget>
+    <!-- Schedule -->
+    <nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" *ngIf="dashboard?.todaySchedule as scheduleSummary">
+      <app-dashboard-widget title="Today's Schedule">
+        <ul class="list-disc pl-5">
+          <li *ngFor="let cls of scheduleSummary.classesToday">{{ cls }}</li>
+        </ul>
+      </app-dashboard-widget>
+    </nz-col>
 
-  <app-dashboard-widget
-    title="Enrollment"
-    [content]="dashboardData.enrollmentStatus">
-  </app-dashboard-widget>
-
-  <app-dashboard-widget
-    title="Attendance"
-    [content]="dashboardData.attendance">
-  </app-dashboard-widget>
-
-</main>
+    <!-- Enrollment -->
+    <nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" *ngIf="dashboard?.enrollmentStatus as status">
+      <app-dashboard-widget title="Enrollment Status">
+        <p>{{ status }}</p>
+      </app-dashboard-widget>
+    </nz-col>
+  </nz-row>
+</div>

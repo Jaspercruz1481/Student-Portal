@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 public class ScheduleDto {
 
     private Long id;
-    private Student student;
-    private Course course;
+    private Long studentId;
+    private Long courseId;
     private String instructor;
     private String dayOfWeek;
     private LocalDateTime startTime;

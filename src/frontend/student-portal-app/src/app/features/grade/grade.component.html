@@ -1,0 +1,23 @@
+<div class="grade-container">
+  <h2 class="title">My Grades</h2>
+
+  <nz-table #basicTable [nzData]="subjects" nzBordered>
+    <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Midterm</th>
+      <th>Final</th>
+      <th>Average</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let sub of subjects">
+      <td>{{ sub.subjectName?.name }}</td>
+      <td>{{ sub.midterms }}</td>
+      <td>{{ sub.finals }}</td>
+      <td>{{ sub.average | number:'1.0-2' }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

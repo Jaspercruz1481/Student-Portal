@@ -1,0 +1,17 @@
+<nz-layout class="main-layout">
+  <!-- Header -->
+  <nz-header>
+    <app-header></app-header> <!-- your generic header -->
+  </nz-header>
+
+  <!-- Sidebar + Main Content -->
+  <nz-layout>
+    <nz-sider nzCollapsible nzWidth="250" nzTheme="dark">
+      <app-sidebar></app-sidebar> <!-- your generic sidebar -->
+    </nz-sider>
+
+    <nz-content class="p-6 bg-gray-100 overflow-auto">
+      <router-outlet></router-outlet> <!-- dashboard or any page renders here -->
+    </nz-content>
+  </nz-layout>
+</nz-layout>

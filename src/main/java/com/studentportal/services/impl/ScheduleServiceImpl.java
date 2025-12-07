@@ -44,8 +44,6 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Override
     public ScheduleDto createSchedule(ScheduleDto dto) {
         Schedule schedule = Schedule.builder()
-                .student(dto.getStudent())
-                .course(dto.getCourse())
                 .instructor(dto.getInstructor())
                 .dayOfWeek(dto.getDayOfWeek())
                 .startTime(dto.getStartTime())
@@ -63,8 +61,6 @@ public class ScheduleServiceImpl implements ScheduleService {
     public ScheduleDto updateSchedule(ScheduleDto dto, Long id) {
         Schedule schedule = findById(id);
 
-        schedule.setCourse(dto.getCourse());
-        schedule.setStudent(dto.getStudent());
         schedule.setRoom(dto.getRoom());
         schedule.setInstructor(dto.getInstructor());
         schedule.setTerm(dto.getTerm());

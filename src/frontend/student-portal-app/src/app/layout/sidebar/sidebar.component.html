@@ -1,0 +1,67 @@
+<nz-sider
+  nzTheme="light"
+  nzCollapsible
+  [(nzCollapsed)]="isCollapsed"
+  [nzWidth]="250"
+  [nzCollapsedWidth]="80"
+  [nzTrigger]="null"
+>
+  <div class="sidebar-header">
+    <nz-icon
+      class="collapse-icon"
+      [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+      (click)="isCollapsed = !isCollapsed"
+    ></nz-icon>
+  </div>
+    <ul nz-menu nzMode="inline" class="sider-menu">
+      <li nz-menu-item (click)="navigateTo('/dashboard')" [nzSelected]="selected === 'dashboard'">
+        <span nz-icon nzType="dashboard"></span>
+        <span>Dashboard</span>
+      </li>
+      <li nz-menu-item (click)="navigateTo('/grades')" [nzSelected]="selected === 'grades'">
+        <span nz-icon nzType="bell"></span>
+        <span>Grades</span>
+      </li>
+      <li nz-menu-item (click)="navigateTo('/schedule')" [nzSelected]="selected === 'schedule'">
+        <span nz-icon nzType="table"></span>
+        <span>Schedule</span>
+      </li>
+      <li nz-menu-item (click)="navigateTo('/attendance')" [nzSelected]="selected === 'attendance'">
+        <span nz-icon nzType="setting"></span>
+        <span>Attendance</span>
+      </li>
+
+      <li nz-menu-item (click)="navigateTo('/enrollment')" [nzSelected]="selected === 'enrollment'">
+        <span nz-icon nzType="book"></span>
+        <span>Enrollment</span>
+      </li>
+    </ul>
+  </nz-sider>
+
+
+<!--  <nz-menu nzTheme="dark" nzMode="inline" class="menu-list">-->
+<!--    <nz-menu-item nzMatchRouter (click)="navigateTo('/dashboard')" [nzSelected]="selected === 'dashboard'">-->
+<!--      <span nz-icon nzType="dashboard"></span>-->
+<!--      <span>Dashboard</span>-->
+<!--    </nz-menu-item>-->
+
+<!--    <nz-menu-item (click)="navigateTo('/enrollment')" [nzSelected]="selected === 'enrollment'">-->
+<!--      <span nz-icon nzType="bar-chart"></span>-->
+<!--      <span>Enrollment</span>-->
+<!--    </nz-menu-item>-->
+
+<!--    <nz-menu-item (click)="navigateTo('/grades')" [nzSelected]="selected === 'grades'">-->
+<!--      <span nz-icon nzType="bell"></span>-->
+<!--      <span>Grades</span>-->
+<!--    </nz-menu-item>-->
+
+<!--    <nz-menu-item (click)="navigateTo('/attendance')" [nzSelected]="selected === 'attendance'">-->
+<!--      <span nz-icon nzType="setting"></span>-->
+<!--      <span>Attendance</span>-->
+<!--    </nz-menu-item>-->
+
+<!--    <nz-menu-item (click)="navigateTo('/profile')" [nzSelected]="selected === 'profile'">-->
+<!--      <span nz-icon nzType="user"></span>-->
+<!--      <span>Profile</span>-->
+<!--    </nz-menu-item>-->
+<!--  </nz-menu>-->

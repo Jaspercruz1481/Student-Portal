@@ -1,16 +1,15 @@
 package com.studentportal.services.impl;
 
 import com.studentportal.commons.DtoMapper;
-import com.studentportal.models.Attendance;
 import com.studentportal.models.Grade;
-import com.studentportal.models.dto.AttendanceDto;
+import com.studentportal.models.Subject;
 import com.studentportal.models.dto.GradeDto;
 import com.studentportal.repos.GradeRepo;
 import com.studentportal.services.GradeService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -26,7 +25,7 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public List<GradeDto> getByStudentId(Long studentId) {
-        List<Grade> byStudentId = gradeRepo.findByStudentId(studentId);
+        List<Grade> byStudentId = gradeRepo.findBySubject_StudentId(studentId);
         return DtoMapper.mapList(byStudentId, GradeDto.class);
     }
 
@@ -44,10 +43,12 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public GradeDto createGrade(GradeDto dto) {
+        Subject subject = DtoMapper.map(dto.getSubjectName(), Subject.class);
         Grade grade = Grade.builder()
-                .student(dto.getStudent())
-                .gradeAmount(dto.getGradeAmount())
-                .subject(dto.getSubject())
+//                .student(dto.getStudent())
+                .midterms(dto.getMidterms())
+                .midterms(dto.getFinals())
+                .subject(subject)
                 .build();
 
         Grade save = gradeRepo.save(grade);
@@ -57,10 +58,11 @@ public class GradeServiceImpl implements GradeService {
     @Override
     public GradeDto updateGrade(GradeDto dto, Long id) {
         Grade grade = findById(id);
-
-        grade.setSubject(dto.getSubject());
-        grade.setStudent(dto.getStudent());
-        grade.setGradeAmount(dto.getGradeAmount());
+        Subject subject = DtoMapper.map(dto.getSubjectName(), Subject.class);
+        grade.setSubject(subject);
+//        grade.setStudent(dto.getStudent());
+        grade.setMidterms(dto.getMidterms());
+        grade.setFinals(dto.getFinals());
 
         Grade updated = gradeRepo.save(grade);
 
@@ -82,7 +84,7 @@ public class GradeServiceImpl implements GradeService {
         double total = 0;
 
         for (Grade g : gradeList) {
-            int amount = g.getGradeAmount();
+            Double amount = g.getAverage();
 
             double gpaValue;
             if (amount >= 90) gpaValue = 4.0;

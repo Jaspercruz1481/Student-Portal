@@ -40,7 +40,7 @@ public class DashboardServiceImpl implements DashboardService {
 
     @Override
     public DashboardDto getDashboard(Long studentId) {
-        List<Grade> gradesList = gradeRepo.findByStudentId(studentId);
+        List<Grade> gradesList = gradeRepo.findBySubject_StudentId(studentId);
         Double gpa = gradeService.calculateGpa(gradesList, studentId);
 
         List<String> subjects = gradesList.stream()

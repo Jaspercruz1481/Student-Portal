@@ -1,0 +1,29 @@
+<div class="sched-container">
+  <h2 class="title">My Schedule</h2>
+
+  <nz-table #basicTable [nzData]="schedule" nzBordered>
+    <thead>
+    <tr>
+      <th>Class Section</th>
+      <th>Day of the Week</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Instructor</th>
+      <th>Room</th>
+      <th>Term</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let sched of schedule">
+      <td>{{ sched.classSection }}</td>
+      <td>{{ sched.dayOfWeek }}</td>
+      <td>{{ sched.startTime }}</td>
+      <td>{{ sched.endTime }}</td>
+      <td>{{ sched.instructor }}</td>
+      <td>{{ sched.room }}</td>
+      <td>{{ sched.term }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

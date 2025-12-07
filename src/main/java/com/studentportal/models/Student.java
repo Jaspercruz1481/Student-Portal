@@ -1,7 +1,11 @@
 package com.studentportal.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +13,9 @@ import java.util.List;
 @Data
 @Table(name = "STUDENT")
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Student {
 
     @Id
@@ -42,22 +49,36 @@ public class Student {
     @Column(name = "YEAR", nullable = false)
     private String year;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     private Course course;
 
     // A student can have many enrollments
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Enrollment> enrollments = new ArrayList<>();
 
     // A student can have many attendance logs
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Attendance> attendances = new ArrayList<>();
 
     // A student can have many attendance logs
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Schedule> schedules = new ArrayList<>();
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Subject> subject = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                '}';
+    }
 }

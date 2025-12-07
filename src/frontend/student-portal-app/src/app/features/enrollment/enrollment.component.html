@@ -1,0 +1,24 @@
+<div class="enr-container">
+  <h2 class="title">My Enrollment</h2>
+
+  <nz-table #basicTable [nzData]="enrollment" nzBordered>
+    <thead>
+    <tr>
+      <th>Enrollment Date</th>
+      <th>Term</th>
+      <th>Status</th>
+      <th>Remarks</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let enr of enrollment">
+      <td>{{ enr.enrollmentDate }}</td>
+      <td>{{ enr.term }}</td>
+      <td>{{ enr.status }}</td>
+      <td>{{ enr.remarks }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>
+
